@@ -1057,14 +1057,17 @@ section {
     }
 
     .hero {
-        min-height: auto;
-        padding: 100px 0 60px;
+        min-height: 100vh;
+        padding: 120px 0 60px;
+        display: flex;
+        align-items: center;
     }
 
     .hero .container {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
+        gap: 3rem;
+        justify-content: center;
     }
 
     .hero-content {
@@ -1073,6 +1076,7 @@ section {
 
     .hero-image {
         order: 1;
+        margin-top: 0;
     }
 
     .glitch {
@@ -1237,7 +1241,14 @@ section {
     }
 
     .hero {
-        padding: 90px 0 50px;
+        padding: 110px 0 50px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero .container {
+        gap: 2.5rem;
     }
 
     .glitch {
@@ -1402,6 +1413,10 @@ section {
 
 /* Small Mobile - 375px to 479px */
 @media (max-width: 479px) {
+    .hero {
+        padding-top: 130px;
+    }
+
     .glitch {
         font-size: 1.8rem;
     }
@@ -1456,6 +1471,10 @@ section {
 @media (max-width: 374px) {
     .container {
         padding: 0 10px;
+    }
+
+    .hero {
+        padding-top: 140px;
     }
 
     .glitch {
