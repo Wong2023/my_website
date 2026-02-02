@@ -1,4 +1,4 @@
-* === ОСНОВНЫЕ СТИЛИ === */
+/* === ОСНОВНЫЕ СТИЛИ === */
 * {
     margin: 0;
     padding: 0;
@@ -390,22 +390,12 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* animation: rotate 20s linear infinite; REMOVED - photo won't spin */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cyber-circle:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 .cyber-circle::before {
@@ -925,7 +915,7 @@ section {
     border: 1px solid rgba(0, 255, 136, 0.3);
 }
 
-/* === RESPONSIVE DESIGN === */
+/* === RESPONSIVE DESIGN - FIXED === */
 
 /* Large Desktop - 1400px and above */
 @media (min-width: 1400px) {
@@ -1032,23 +1022,23 @@ section {
     }
 
     .nav-container {
-        padding: 0.8rem 1rem;
+        padding: 0.6rem 1rem;
     }
 
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .logo-bracket {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .nav-menu {
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .nav-link {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         padding: 3px 0;
     }
 
@@ -1058,16 +1048,14 @@ section {
 
     .hero {
         min-height: 100vh;
-        padding: 120px 0 60px;
-        display: flex;
-        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 40px;
     }
 
     .hero .container {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
-        justify-content: center;
+        gap: 2rem;
     }
 
     .hero-content {
@@ -1080,12 +1068,15 @@ section {
     }
 
     .glitch {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .typing-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin: 0 auto;
+        white-space: normal;
+        border-right: none;
+        animation: none;
     }
 
     .hero-buttons {
@@ -1095,27 +1086,27 @@ section {
 
     .btn {
         padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .cyber-circle {
-        width: 280px;
-        height: 280px;
-    }
-
-    .circle-inner {
         width: 260px;
         height: 260px;
     }
 
+    .circle-inner {
+        width: 240px;
+        height: 240px;
+    }
+
     .cyber-circle::before {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 
     .cyber-circle::after {
-        width: 320px;
-        height: 320px;
+        width: 300px;
+        height: 300px;
     }
 
     .section-title {
@@ -1138,7 +1129,7 @@ section {
 
     .about-image {
         order: 1;
-        max-width: 400px;
+        max-width: 300px;
         margin: 0 auto;
     }
 
@@ -1210,6 +1201,8 @@ section {
 
     .social-links {
         gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
@@ -1220,35 +1213,27 @@ section {
     }
 
     .nav-container {
-        padding: 0.7rem 0.8rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        padding: 0.6rem 0.8rem;
     }
 
     .logo {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .nav-menu {
-        width: 100%;
-        justify-content: center;
-        gap: 0.8rem;
-        padding-top: 0.5rem;
+        gap: 0.7rem;
     }
 
     .nav-link {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .hero {
-        padding: 110px 0 50px;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
+        padding-top: 90px;
     }
 
     .hero .container {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .glitch {
@@ -1257,10 +1242,7 @@ section {
     }
 
     .typing-text {
-        font-size: 1rem;
-        white-space: normal;
-        border-right: none;
-        animation: none;
+        font-size: 0.95rem;
     }
 
     .hero-buttons {
@@ -1272,7 +1254,7 @@ section {
     .btn {
         width: 100%;
         padding: 0.9rem 1rem;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .cyber-circle {
@@ -1301,26 +1283,20 @@ section {
 
     .section-title {
         font-size: 1.6rem;
-        flex-wrap: wrap;
-    }
-
-    .section-title::after {
-        width: 100%;
-        margin-top: 0.5rem;
     }
 
     .about-description {
         font-size: 0.9rem;
-        margin-bottom: 1rem;
     }
 
     .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.7rem;
     }
 
     .skill-item {
-        padding: 0.8rem;
+        padding: 0.7rem;
+        font-size: 0.8rem;
     }
 
     .project-card {
@@ -1340,7 +1316,7 @@ section {
     }
 
     .tag {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         padding: 0.25rem 0.6rem;
     }
 
@@ -1370,7 +1346,6 @@ section {
         font-size: 1.1rem;
     }
 
-    .certificate-issuer,
     .certificate-date {
         font-size: 0.85rem;
     }
@@ -1385,14 +1360,12 @@ section {
 
     .social-links {
         gap: 1rem;
-        flex-wrap: wrap;
     }
 
     .social-link {
         font-size: 0.9rem;
     }
 
-    /* Modal responsive */
     .modal-content {
         max-width: 95%;
         max-height: 80vh;
@@ -1414,7 +1387,7 @@ section {
 /* Small Mobile - 375px to 479px */
 @media (max-width: 479px) {
     .hero {
-        padding-top: 130px;
+        padding-top: 85px;
     }
 
     .glitch {
@@ -1423,6 +1396,66 @@ section {
 
     .typing-text {
         font-size: 0.9rem;
+    }
+
+    .cyber-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .circle-inner {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cyber-circle::before {
+        width: 240px;
+        height: 240px;
+    }
+
+    .cyber-circle::after {
+        width: 260px;
+        height: 260px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .title-number {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .certificate-image {
+        height: 140px;
+    }
+}
+
+/* Extra Small Mobile - below 375px */
+@media (max-width: 374px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    .glitch {
+        font-size: 1.6rem;
+    }
+
+    .typing-text {
+        font-size: 0.85rem;
     }
 
     .cyber-circle {
@@ -1447,66 +1480,6 @@ section {
 
     .section-title {
         font-size: 1.4rem;
-    }
-
-    .title-number {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 0.8rem 1rem;
-        font-size: 0.8rem;
-    }
-
-    .project-image {
-        height: 180px;
-    }
-
-    .certificate-image {
-        height: 140px;
-    }
-}
-
-/* Extra Small Mobile - below 375px */
-@media (max-width: 374px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .hero {
-        padding-top: 140px;
-    }
-
-    .glitch {
-        font-size: 1.5rem;
-    }
-
-    .typing-text {
-        font-size: 0.85rem;
-    }
-
-    .cyber-circle {
-        width: 180px;
-        height: 180px;
-    }
-
-    .circle-inner {
-        width: 160px;
-        height: 160px;
-    }
-
-    .cyber-circle::before {
-        width: 200px;
-        height: 200px;
-    }
-
-    .cyber-circle::after {
-        width: 220px;
-        height: 220px;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
     }
 
     .project-image {
@@ -1548,14 +1521,6 @@ section {
     }
 }
 
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .particle {
-        width: 3px;
-        height: 3px;
-    }
-}
-
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -1571,10 +1536,6 @@ section {
     }
 
     .particle {
-        animation: none;
-    }
-
-    .cyber-circle {
         animation: none;
     }
 

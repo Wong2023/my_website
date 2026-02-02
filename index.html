@@ -183,7 +183,6 @@
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="https://github.com/eurusfox-24/HoneyPot-SavoniaUAS" class="project-link">GitHub</a>
-                                <!-- <a href="#" class="project-link">Live Demo</a> -->
                             </div>
                         </div>
                     </div>
@@ -272,7 +271,6 @@
                     </div>
                     <div class="certificate-content">
                         <h3 class="certificate-title">Big Data 101</h3>
-                        <!-- <p class="certificate-issuer">Organization Name</p> -->
                         <p class="certificate-date">20.01.2026</p>
                     </div>
                 </div>
@@ -285,7 +283,6 @@
                     </div>
                     <div class="certificate-content">
                         <h3 class="certificate-title">Signal Processing</h3>
-                        <!-- <p class="certificate-issuer">Organization Name 2</p> -->
                         <p class="certificate-date">23.01.2026</p>
                     </div>
                 </div>
@@ -298,7 +295,6 @@
                     </div>
                     <div class="certificate-content">
                         <h3 class="certificate-title">Wireless Communications</h3>
-                        <!-- <p class="certificate-issuer">Organization Name 3</p> -->
                         <p class="certificate-date">23.01.2026</p>
                     </div>
                 </div>
@@ -338,15 +334,12 @@
         const closeBtn = document.querySelector('.modal-close');
         let hoverTimeout;
 
-        // Check if device is touch-enabled
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        // Add hover/click events to all certificate images
         document.querySelectorAll('.certificate-image img').forEach(img => {
             img.style.cursor = 'pointer';
             
             if (!isTouchDevice) {
-                // Desktop: open on hover
                 img.addEventListener('mouseenter', function() {
                     hoverTimeout = setTimeout(() => {
                         modal.style.display = 'flex';
@@ -360,7 +353,6 @@
                     clearTimeout(hoverTimeout);
                 });
             } else {
-                // Mobile: open on click
                 img.addEventListener('click', function() {
                     modal.style.display = 'flex';
                     modalImg.src = this.src;
@@ -370,13 +362,11 @@
             }
         });
 
-        // Close modal when clicking X
         closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
 
-        // Close modal when clicking outside image
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 modal.style.display = 'none';
@@ -384,7 +374,6 @@
             }
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && modal.style.display === 'flex') {
                 modal.style.display = 'none';
@@ -392,7 +381,6 @@
             }
         });
 
-        // Close modal when mouse leaves it (desktop only)
         if (!isTouchDevice) {
             modal.addEventListener('mouseleave', function() {
                 modal.style.display = 'none';
