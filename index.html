@@ -6,6 +6,7 @@
     <title>Frontend & Cyber Security Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+</html>
 <body>
     <!-- Animated Background -->
     <div class="cyber-bg">
@@ -222,7 +223,12 @@
                         </div>
                         <h3 class="project-title">POS System (React.js)</h3>
                         <p class="project-description">
-                            Developed a web-based Point of Sale (POS) system using React.js and modern JavaScript (ES6+). The application is built with a component-based architecture, utilizing React hooks for state management and logic separation. Implemented features include product management, sales transaction flow, dynamic cart handling, and real-time calculation of totals. The UI was designed to be responsive and optimized for daily operational use, with a focus on performance, code reusability, and maintainability.
+                            Developed a web-based Point of Sale (POS) system using React.js and modern JavaScript (ES6+). 
+                            The application is built with a component-based architecture, utilizing React hooks for state 
+                            management and logic separation. Implemented features include product management, 
+                            sales transaction flow, dynamic cart handling, and real-time calculation of totals. 
+                            The UI was designed to be responsive and optimized for daily operational use, with a focus 
+                            on performance, code reusability, and maintainability.
                         </p>
                     </div>
                 </div>
@@ -246,7 +252,42 @@
                         </div>
                         <h3 class="project-title">Financial Reporting Web Application</h3>
                         <p class="project-description">
-                            Developed a financial reporting web application using React.js and JavaScript for managing sales data and client records. The application includes data-driven dashboards with structured views for revenue tracking, client activity, and sales summaries. Implemented reusable UI components, conditional rendering, and efficient state handling to support dynamic data updates. Special attention was given to data visualization, clean component structure, and overall usability to support business analysis and reporting workflows.
+                            Developed a financial reporting web application using React.js and JavaScript for managing sales 
+                            data and client records. The application includes data-driven dashboards with structured views for 
+                            revenue tracking, client activity, and sales summaries. Implemented reusable UI components, 
+                            conditional rendering, and efficient state handling to support dynamic data updates. Special 
+                            attention was given to data visualization, clean component structure, and overall usability to 
+                            support business analysis and reporting workflows.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Images/projects/1764317194689.jpg" alt="Project 4">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Wong2023/FitnessApp" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">Jetpack Compose</span>
+                            <span class="tag">Material 3</span>
+                        </div>
+                        <h3 class="project-title">FitnessApp (Android, Kotlin + Jetpack Compose)</h3>
+                        <p class="project-description">
+                           Developed a robust fitness planning application for Android using Kotlin and Jetpack Compose. 
+                           The app features a fully declarative UI built with modern Material 3 design principles, 
+                           supporting light/dark themes and responsive components. 
+                           Implemented complete CRUD functionality for creating, reading, updating, and deleting workout 
+                           programs and exercises, with local persistence using JSON serialization. The architecture leverages 
+                           unidirectional data flow and custom state management without external libraries, ensuring clean and 
+                           maintainable code. The project emphasizes scalable UI composition, state-driven navigation, and 
+                           reliable local storage to provide users with a seamless workout planning experience.
                         </p>
                     </div>
                 </div>
@@ -325,69 +366,6 @@
         <img class="modal-content" id="modalImage">
         <div class="modal-caption" id="modalCaption"></div>
     </div>
-
-    <script>
-        // Certificate Image Modal/Lightbox
-        const modal = document.getElementById('certificateModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalCaption = document.getElementById('modalCaption');
-        const closeBtn = document.querySelector('.modal-close');
-        let hoverTimeout;
-
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        document.querySelectorAll('.certificate-image img').forEach(img => {
-            img.style.cursor = 'pointer';
-            
-            if (!isTouchDevice) {
-                img.addEventListener('mouseenter', function() {
-                    hoverTimeout = setTimeout(() => {
-                        modal.style.display = 'flex';
-                        modalImg.src = this.src;
-                        modalCaption.textContent = this.alt;
-                        document.body.style.overflow = 'hidden';
-                    }, 300);
-                });
-
-                img.addEventListener('mouseleave', function() {
-                    clearTimeout(hoverTimeout);
-                });
-            } else {
-                img.addEventListener('click', function() {
-                    modal.style.display = 'flex';
-                    modalImg.src = this.src;
-                    modalCaption.textContent = this.alt;
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-        });
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        if (!isTouchDevice) {
-            modal.addEventListener('mouseleave', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
