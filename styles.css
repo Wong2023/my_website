@@ -1521,6 +1521,55 @@ section {
     }
 }
 
+.experience {
+    padding: 80px 0;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+}
+
+.experience-title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #00f0ff;
+}
+
+.project-subtitle {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  opacity: 0.9;
+}
+
+.project-list {
+  margin: 0 0 14px 0;
+  padding-left: 18px;
+  line-height: 1.65;
+}
+
+.project-list li {
+  margin: 6px 0;
+  opacity: 0.92;
+}
+
+.project-description {
+  line-height: 1.7;
+}
+
+.experience-meta {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.experience-list {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     *,
