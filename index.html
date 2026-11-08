@@ -1,469 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend & Cyber Security Portfolio</title>
-    <link rel="icon" type="image/png" href="Images/favicon.png">
-    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c141b">
+  <meta name="description" content="Arsenii Marchenko: software development, cybersecurity, IoT and DevOps. React and Python projects, industrial honeypot research, and opportunities in Helsinki, Espoo and Vantaa.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arsenii Marchenko | Software Development & Cybersecurity">
+  <meta property="og:description" content="React interfaces, Python integrations and industrial cybersecurity. Explore my work and get in touch.">
+  <meta name="twitter:card" content="summary">
+  <title>Arsenii Marchenko | Software Development & Cybersecurity</title>
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261108-motion">
+  <script src="script.js?v=20261108-motion" defer></script>
 </head>
-</html>
 <body>
-    <!-- Animated Background -->
-    <div class="cyber-bg">
-        <div class="grid-lines"></div>
-        <div class="floating-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">DEV/SEC</span>
-                <span class="logo-bracket">/&gt;</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#certificates" class="nav-link">Certificates</a></li>
-            </ul>
-        </div>
+  <canvas class="ambient-background" id="ambientBackground" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="DEV/SEC, home"><span>&lt;</span> DEV/SEC <span>/&gt;</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden>
+        <span class="menu-label">Menu</span><span class="menu-symbol" aria-hidden="true">+</span>
+      </button>
+      <ul class="nav-menu" id="navigation">
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#certificates">Certificates</a></li>
+        <li><a class="nav-link nav-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a></li>
+      </ul>
     </nav>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="glitch-wrapper">
-                    <h1 class="glitch" data-text="Marchenko Arsenii">Marchenko Arsenii</h1>
-                </div>
-                <div class="typing-container">
-                    <p class="typing-text">Software Engineer — Frontend, Backend & Cloud Security</p>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">My Projects</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to opportunities in Finland</p>
+            <h1 id="hero-title">Arsenii<br>Marchenko<span class="name-period">.</span></h1>
+            <p class="hero-role">
+              <span class="sr-only">Software development. Cybersecurity &amp; IoT.</span>
+              <span class="typing-line" aria-hidden="true"><span class="type-measure">Software development.</span><span class="type-output">Software development.</span></span>
+              <span class="typing-line" aria-hidden="true"><span class="type-measure">Cybersecurity &amp; IoT.</span><span class="type-output">Cybersecurity &amp; IoT.</span></span>
+            </p>
+            <p class="hero-description">I build React interfaces and Python-based integrations, with a security-minded approach and an interest in DevOps and cloud engineering.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">View projects <span aria-hidden="true">↘</span></a>
+              <a class="btn btn-secondary" href="Images/CV1.pdf" target="_blank" rel="noopener noreferrer">View CV <span aria-hidden="true">↗</span></a>
+              <a class="text-link hero-contact" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
             </div>
-            <div class="hero-image">
-                <div class="cyber-circle">
-                    <div class="circle-inner">
-                        <img src="Images/myphoto.jpg" alt="Profile" class="hero-photo">
-                    </div>
-                </div>
+            <p class="location">Based in Kuopio · Seeking roles in Helsinki, Espoo &amp; Vantaa</p>
+          </div>
+          <figure class="portrait">
+            <div class="portrait-frame">
+              <img src="Images/myphoto.jpg" alt="Portrait of Arsenii Marchenko" width="460" height="500" fetchpriority="high" decoding="async">
             </div>
+            <figcaption><span>Frontend / Python / Security</span><span>Finland</span></figcaption>
+          </figure>
         </div>
+        <dl class="highlights" aria-label="Selected experience highlights">
+          <div><dt>40+</dt><dd>Features delivered<span>Murkhasya Studio</span></dd></div>
+          <div><dt>10+</dt><dd>Reusable UI components<span>React &amp; TypeScript</span></dd></div>
+          <div><dt>50%</dt><dd>Less lab deployment time<span>Savonia internship</span></dd></div>
+        </dl>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-number">01.</span> About Me
-        </h2>
-        <div class="about-content">
-            <!-- LEFT: About text -->
-            <div class="about-text">
-                <p class="about-description">
-                    I am a Software Engineer with a strong focus on secure application architecture, cloud security, 
-                    and production-grade frontend systems. My background combines commercial experience as a Lead 
-                    Frontend Developer with hands-on expertise in backend development and cybersecurity practices.
-                </p>
-                <p class="about-description">
-                    I specialize in building scalable, secure, and maintainable applications using modern JavaScript 
-                    ecosystems (React, Next.js), backend technologies (Node.js, Python), and cloud-oriented design 
-                    principles. I have implemented secure authentication and authorization flows, applied OWASP best 
-                    practices, and worked with real-world production systems where performance, security, and reliability 
-                    were critical.
-                </p>
-                <p class="about-description">
-                    Beyond development, I continuously deepen my expertise in cloud security, penetration testing, 
-                    and intelligent systems. My approach combines engineering precision, security awareness, and 
-                    architectural thinking to deliver robust, high-quality software solutions.
-                </p>
-            </div>
-
-            <!-- RIGHT: Skills grid -->
-            <div class="skills-container">
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon">🔒</div>
-                        <span>Wireshark, Nmap, Hashcat</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🔒</div>
-                        <span>Metasploit</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🛡️</div>
-                        <span>Kali and Debian Linux, Ubuntu</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🔒</div>
-                        <span>Aircrack</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>GitHub, Git, Bitbucket</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>Kotlin</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>Pandas, NumPy, Django</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>PyTorch</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>React-Native, Angular</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>CI/CD and agile techniques</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <span>Typescript</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🎨</div>
-                        <span>CSS/HTML</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🎨</div>
-                        <span>UI/UX</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">⚛️</div>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🛡️</div>
-                        <span>Penetration Testing</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🔐</div>
-                        <span>Cryptography</span>
-                    </div>
-                </div>
-            </div>
+    <section class="section work-section" id="projects" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 / Selected work</p><h2 id="work-title">Selected projects</h2></div>
+          <div class="work-tools">
+            <p>From business interfaces to industrial security research.</p>
+            <button class="details-toggle text-link" type="button" aria-expanded="false" hidden>Expand project details <span aria-hidden="true">+</span></button>
+          </div>
         </div>
-    </div>
-</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">02.</span> My Projects
-            </h2>
-            <div class="projects-grid">
-                
-                <!-- PROJECT 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/projects/photo_2026-02-02_17-43-36.jpg" alt="Project 1">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/eurusfox-24/HoneyPot-SavoniaUAS" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Offensive & Defensive Security</span>
-                            <span class="tag">Network Security</span>
-                        </div>
-                        <h3 class="project-title">HoneyPot environment</h3>
-                       <p class="project-description">
-                            Designed and deployed a multi-node isolated honeypot network to simulate real-world attack scenarios
-                            within a controlled educational environment. The infrastructure incorporated Cowrie for SSH/Telnet
-                            honeypot emulation, Suricata for intrusion detection, and OpenWRT-based routing for network isolation.
-                            </p>
-
-                            <p class="project-subtitle">Key contributions</p>
-                            <ul class="project-list">
-                            <li>Designed network topology and isolation strategy</li>
-                            <li>Performed penetration testing and active attack simulation</li>
-                            <li>Conducted traffic analysis using Hydra and Nmap</li>
-                            <li>Captured and analyzed attacker behavior patterns</li>
-                            <li>Contributed to dashboard visualization of intrusion data</li>
-                            </ul>
-
-                            <p class="project-description">
-                            Hands-on exposure to attacker methodologies including port scanning, brute-force attempts,
-                            and unauthorized access probes.
-                            </p>
-
-                    </div>
-                </div>
-
-                <!-- PROJECT 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/projects/Screenshot 2026-02-02 200426.png" alt="Project 2">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Wong2023/POSApp" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">UI, UX</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Responsive Design</span>
-                            <span class="tag">Component-Based Architecture</span>
-                            <span class="tag">React</span>
-                        </div>
-                        <h3 class="project-title">POS System (React.js)</h3>
-                        <p class="project-description">
-                            Developed a production-ready Point of Sale (POS) web application using React and modern ES6+ JavaScript. 
-                            The system follows a modular, component-driven architecture with reusable UI logic and clear separation of concerns.
-                            </p>
-
-                            <p class="project-subtitle">Key Contributions</p>
-                            <ul class="project-list">
-                                <li>Designed scalable component-based frontend architecture</li>
-                                <li>Implemented dynamic cart management and transaction workflows</li>
-                                <li>Built real-time pricing and calculation logic</li>
-                                <li>Managed state using React Hooks</li>
-                                <li>Optimized UI responsiveness and rendering performance</li>
-                            </ul>
-
-                            <p class="project-description">
-                            The project demonstrates strong frontend engineering principles focused on maintainability,
-                            performance optimization, and user-centric design.
-                            </p>
-
-                    </div>
-                </div>
-
-                <!-- PROJECT 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/projects/Screenshot 2026-02-02 200607.png" alt="Project 3">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Wong2023/FinanceApp" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Reporting System</span>
-                            <span class="tag">Business Application</span>
-                        </div>
-                        <h3 class="project-title">Financial Reporting Web Application</h3>
-                        <p class="project-description">
-                            Engineered a financial reporting web application focused on structured data visualization 
-                            and business analytics workflows using React and JavaScript.
-                            </p>
-
-                            <p class="project-subtitle">Key Contributions</p>
-                            <ul class="project-list">
-                                <li>Developed revenue and client tracking dashboards</li>
-                                <li>Implemented dynamic reporting views with conditional rendering</li>
-                                <li>Built reusable UI components for scalable architecture</li>
-                                <li>Managed predictable state updates for data-driven interfaces</li>
-                                <li>Enhanced usability and reporting clarity</li>
-                            </ul>
-
-                            <p class="project-description">
-                            The application showcases scalable frontend design tailored for business intelligence and
-                            decision-support environments.
-                            </p>
-
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/projects/1764317194689.jpg" alt="Project 4">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Wong2023/FitnessApp" class="project-link">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Android</span>
-                            <span class="tag">Kotlin</span>
-                            <span class="tag">Jetpack Compose</span>
-                            <span class="tag">Material 3</span>
-                        </div>
-                        <h3 class="project-title">FitnessApp (Android, Kotlin + Jetpack Compose)</h3>
-                        <p class="project-description">
-                            Developed a modern Android fitness planning application using Kotlin and Jetpack Compose 
-                            with Material 3 design principles and fully declarative UI architecture.
-                            </p>
-
-                            <p class="project-subtitle">Key Contributions</p>
-                            <ul class="project-list">
-                                <li>Built fully declarative UI using Jetpack Compose</li>
-                                <li>Implemented complete CRUD functionality</li>
-                                <li>Designed custom state management without external libraries</li>
-                                <li>Integrated JSON-based local persistence</li>
-                                <li>Applied unidirectional data flow architecture</li>
-                            </ul>
-
-                            <p class="project-description">
-                            The project emphasizes clean architecture, scalable UI composition, and maintainable mobile development practices.
-                            </p>
-
-                    </div>
-                </div>
-
+        <article class="thesis">
+          <div class="thesis-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Featured thesis · In progress</p>
+            <h3>Dynamic Industrial<br class="desktop-break"> Honeypot for ICS/OT</h3>
+            <p class="thesis-intro">A dynamic industrial environment for observing attacks and tracing how they affect a simulated plant.</p>
+            <div class="ownership">
+              <p class="mini-label">My responsibility</p>
+              <p>Python middleware development<br>and AI integration</p>
             </div>
-        </div>
-    </section>
-    <!-- Experience Section -->
-<!-- Experience Section -->
-<section id="experience" class="experience">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-number">03.</span> Experience
-        </h2>
-
-        <div class="experience-grid">
-            <!-- LEFT COLUMN -->
-            <div class="experience-item">
-                <h3 class="experience-title">Lead Frontend Developer</h3>
-                <p class="experience-meta">Commercial Projects Murkhasya company | 2025</p>
-                <ul class="experience-list">
-                    <li>Led frontend architecture design for production-level applications</li>
-                    <li>Implemented secure authentication and role-based authorization systems</li>
-                    <li>Optimized rendering performance and reduced unnecessary re-renders</li>
-                    <li>Collaborated with backend and DevOps teams in agile development cycles</li>
-                    <li>Applied security-focused development practices across the full lifecycle</li>
-                    <li>Reviewed and maintained clean, scalable, and maintainable codebases</li>
+            <p class="team-note">Developed by a three-person thesis team, with a dedicated workstream for my Python middleware and AI integration.</p>
+            <ul class="tag-list" aria-label="Thesis technologies">
+              <li>Python</li><li>Conpot</li><li>ICS/OT</li><li>AI integration</li>
+            </ul>
+            <details class="project-details thesis-details">
+              <summary>Explore my contribution <span aria-hidden="true">+</span></summary>
+              <div class="details-body">
+                <ul>
+                  <li>Developing middleware between protocol-facing interfaces and shared plant state, including command validation and persistent updates.</li>
+                  <li>Integrating a background AI process with a virtual boiler model: temperature, pressure, water level and two pumps.</li>
+                  <li>Keeping actual process state separate from spoofed sensor readings so changes can be investigated.</li>
                 </ul>
+                <p><strong>System context:</strong> Modbus/TCP and Siemens S7comm, structured attacker-action logs, an HMI dashboard and ELK analysis. These describe the wider team system.</p>
+              </div>
+            </details>
+          </div>
+          <div class="architecture" aria-label="Simplified thesis system overview, not a live dashboard">
+            <div class="architecture-heading"><span>System overview</span><span>ICS / OT</span></div>
+            <div class="architecture-node">
+              <p class="mini-label">Industrial interface</p>
+              <p>Conpot</p>
+              <span>Modbus/TCP · Siemens S7comm</span>
             </div>
+            <div class="connector" aria-hidden="true">↓</div>
+            <div class="architecture-node owned-node">
+              <div class="node-heading"><p class="mini-label">My focus</p><span>Python</span></div>
+              <p>Middleware &amp; AI integration</p>
+              <span>Validate commands · Persist state</span>
+            </div>
+            <div class="connector" aria-hidden="true">↕</div>
+            <div class="state-pair">
+              <div><p class="mini-label">Shared plant state</p><span>Boiler · Sensors · Pumps</span></div>
+              <div><p class="mini-label">AI process</p><span>Dynamic state updates</span></div>
+            </div>
+            <div class="connector" aria-hidden="true">↓</div>
+            <div class="architecture-output"><span class="status-dot" aria-hidden="true"></span> Structured logs · HMI · ELK</div>
+            <p class="architecture-note">Development architecture · Team project</p>
+          </div>
+        </article>
 
-            <!-- RIGHT COLUMN -->
-            <div class="experience-item">
-                <h3 class="experience-title">Security & Network Analysis Projects</h3>
-                <p class="experience-meta">Academic & Research-Based Savonia UAS | 2026 – Present</p>
-                <ul class="experience-list">
-                    <li>Designed and tested isolated network environments for security research</li>
-                    <li>Performed penetration testing and traffic inspection using industry tools</li>
-                    <li>Analyzed attacker behavior patterns and intrusion detection data</li>
-                    <li>Applied threat modeling and defensive security techniques</li>
-                </ul>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image"><img src="Images/projects/photo_2026-02-02_17-43-36.jpg" alt="Multi-node honeypot security lab environment" width="640" height="360" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <p class="mini-label">Cybersecurity / Network lab</p>
+              <h3>Multi-node honeynet</h3>
+              <p>An isolated environment for controlled attack simulations, intrusion detection and analysis of attacker behaviour.</p>
+              <ul class="tag-list"><li>Cowrie</li><li>Suricata</li><li>OpenWrt</li></ul>
+              <details class="project-details">
+                <summary>Implementation details <span aria-hidden="true">+</span></summary>
+                <div class="details-body"><ul>
+                  <li>Designed network topology and isolation for SSH/Telnet honeypot emulation.</li>
+                  <li>Ran authorised scans and brute-force simulations with Nmap and Hydra; inspected traffic and intrusion events.</li>
+                  <li>Analysed attacker behaviour and contributed to dashboard visualisation.</li>
+                </ul><p>This educational honeynet is separate from my industrial honeypot thesis.</p></div>
+              </details>
+              <a class="project-link" href="https://github.com/eurusfox-24/HoneyPot-SavoniaUAS" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
             </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image"><img src="Images/projects/Screenshot 2026-02-02 200426.png" alt="React point-of-sale application interface" width="640" height="360" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <p class="mini-label">Frontend / Business application</p>
+              <h3>Point-of-sale system</h3>
+              <p>A component-based React interface for cart management, pricing calculations and transaction workflows.</p>
+              <ul class="tag-list"><li>React</li><li>JavaScript</li><li>React Hooks</li></ul>
+              <details class="project-details">
+                <summary>Implementation details <span aria-hidden="true">+</span></summary>
+                <div class="details-body"><ul>
+                  <li>Built reusable components with clearly separated UI logic.</li>
+                  <li>Implemented dynamic carts, transaction flows and pricing calculations.</li>
+                  <li>Managed state with React Hooks and improved responsive behaviour.</li>
+                </ul></div>
+              </details>
+              <a class="project-link" href="https://github.com/Wong2023/POSApp" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image"><img src="Images/projects/Screenshot 2026-02-02 200607.png" alt="Financial reporting application with client and revenue dashboards" width="640" height="360" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <p class="mini-label">Frontend / Data interfaces</p>
+              <h3>Financial reporting application</h3>
+              <p>Revenue and client-tracking dashboards that turn structured business data into clear, interactive reports.</p>
+              <ul class="tag-list"><li>React</li><li>JavaScript</li><li>Reporting</li></ul>
+              <details class="project-details">
+                <summary>Implementation details <span aria-hidden="true">+</span></summary>
+                <div class="details-body"><ul>
+                  <li>Developed revenue dashboards and client-tracking views.</li>
+                  <li>Built reusable components and conditional reporting layouts.</li>
+                  <li>Managed state updates and refined reporting usability.</li>
+                </ul></div>
+              </details>
+              <a class="project-link" href="https://github.com/Wong2023/FinanceApp" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image fitness-image"><img src="Images/projects/1764317194689.jpg" alt="Fitness planning Android application built with Jetpack Compose" width="640" height="360" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <p class="mini-label">Mobile / Android</p>
+              <h3>FitnessApp</h3>
+              <p>A fitness planning application with a declarative interface, local persistence and complete create, read, update and delete workflows.</p>
+              <ul class="tag-list"><li>Kotlin</li><li>Jetpack Compose</li><li>Material 3</li></ul>
+              <details class="project-details">
+                <summary>Implementation details <span aria-hidden="true">+</span></summary>
+                <div class="details-body"><ul>
+                  <li>Created a declarative interface using Jetpack Compose.</li>
+                  <li>Implemented CRUD workflows and JSON-based local persistence.</li>
+                  <li>Used custom state management and unidirectional data flow.</li>
+                </ul></div>
+              </details>
+              <a class="project-link" href="https://github.com/Wong2023/FitnessApp" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
-
-    </div>
-</section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="certificates">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">04.</span> Certificates
-            </h2>
-            <div class="certificates-grid">
-                
-                <!-- CERTIFICATE 1 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon"></div>
-                    <div class="certificate-image">
-                        <img src="Images/certificates/bigdata.jpg" alt="Big Data 101">
-                    </div>
-                    <div class="certificate-content">
-                        <h3 class="certificate-title">Big Data 101</h3>
-                        <p class="certificate-date">20.01.2026</p>
-                    </div>
-                </div>
-
-                <!-- CERTIFICATE 2 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon"></div>
-                    <div class="certificate-image">
-                        <img src="Images/certificates/certificate (2)_page-0001.jpg" alt="Signal Processing">
-                    </div>
-                    <div class="certificate-content">
-                        <h3 class="certificate-title">Signal Processing</h3>
-                        <p class="certificate-date">23.01.2026</p>
-                    </div>
-                </div>
-
-                <!-- CERTIFICATE 3 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon"></div>
-                    <div class="certificate-image">
-                        <img src="Images/certificates/certificate (3)_page-0001.jpg" alt="Wireless Communications">
-                    </div>
-                    <div class="certificate-content">
-                        <h3 class="certificate-title">Wireless Communications</h3>
-                        <p class="certificate-date">23.01.2026</p>
-                    </div>
-                </div>
-                <div class="certificate-card">
-                    <div class="certificate-icon"></div>
-                    <div class="certificate-image">
-                        <img src="Images/certificates/fortinet_page-0001 (1).jpg" alt="Fortinet Networking Fundamentals">
-                    </div>
-                    <div class="certificate-content">
-                        <h3 class="certificate-title">Fortinet Networking Fundamentals</h3>
-                        <p class="certificate-date">08.02.2026</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">
-                    &copy; 2026 Arsenii. Built with ❤️ and ☕
-                </p>
-                <div class="social-links">
-                    <a href="https://github.com/Wong2023" class="social-link">GitHub</a>
-                    <a href="https://www.linkedin.com/in/arseniimarchenko/" class="social-link">LinkedIn</a>
-                    <a href="Images/CV1.pdf" target="_blank" class="social-link">My CV</a>
-                    <a href="mailto:marchenkoarsenii23@gmail.com" class="social-link">Email Me</a>
-                </div>
-            </div>
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">02 / Experience</p><h2 id="experience-title">Experience</h2></div>
         </div>
-    </footer>
+        <div class="experience-list">
+          <article class="experience-row">
+            <div class="experience-company"><p class="mini-label">Jan 2026 - Present</p><h3>Savonia UAS</h3><p>Kuopio, Finland · Internship</p></div>
+            <div class="experience-body"><h3>Cybersecurity Research Engineer</h3><ul>
+              <li>Developed <strong>5+ web interfaces</strong> for microcontroller monitoring in cyber forensics, reducing educational lab deployment time by <strong>50%</strong>.</li>
+              <li>Implemented authentication and data validation, reducing the risk of successful training attacks on the lab environment by <strong>20%</strong>.</li>
+              <li>Automated hardware data collection with Python, increasing incident processing speed during simulations by <strong>20%</strong>.</li>
+            </ul></div>
+          </article>
+          <article class="experience-row">
+            <div class="experience-company"><p class="mini-label">May 2025 - Nov 2025</p><h3>Murkhasya Studio</h3><p>Frontend development</p></div>
+            <div class="experience-body"><h3>Frontend Developer</h3><ul>
+              <li>Led React frontend development for financial reporting and POS applications, delivering <strong>40+ features</strong> within deadlines.</li>
+              <li>Built <strong>10+ reusable React/TypeScript components</strong>, reducing development time for subsequent interfaces by <strong>35%</strong>.</li>
+              <li>Integrated REST APIs and WebSockets, reducing real-time data display latency by <strong>40%</strong>; optimised builds and media assets to improve page rendering by <strong>15%</strong>.</li>
+            </ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Certificate Modal (Lightbox) -->
-    <div id="certificateModal" class="certificate-modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-caption" id="modalCaption"></div>
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-layout">
+        <div class="about-copy">
+          <p class="eyebrow">03 / About &amp; toolkit</p>
+          <h2 id="about-title">Software, systems<br>&amp; security.</h2>
+          <p>My experience combines frontend development, Python integrations, and hands-on cybersecurity and IoT research. I enjoy connecting usable interfaces with the systems behind them.</p>
+          <p>In my three-person thesis team, I am responsible for Python middleware development and AI integration for a dynamic industrial honeypot. I am also interested in DevOps and cloud engineering roles.</p>
+          <div class="education">
+            <p class="mini-label">Education</p>
+            <h3>Bachelor of IT · Information Technology (IoT)</h3>
+            <p>Savonia University of Applied Sciences</p>
+            <p class="graduation">Expected graduation: December 2026</p>
+          </div>
+        </div>
+        <div class="toolkit" aria-label="Technical toolkit">
+          <div class="toolkit-group"><h3>Development</h3><p>Python · React · TypeScript · JavaScript · Django · C++ · Kotlin</p></div>
+          <div class="toolkit-group"><h3>DevOps &amp; cloud</h3><p>Docker · CI/CD · AWS · Linux · Git · GitHub · Bitbucket</p></div>
+          <div class="toolkit-group"><h3>Cybersecurity &amp; industrial</h3><p>Conpot · ELK Stack · Modbus/TCP · S7comm · Wireshark · Nmap · Metasploit · Kali Linux</p></div>
+          <div class="toolkit-group"><h3>AI &amp; data</h3><p>AI integration · Prompt engineering · AI-assisted development · pandas · NumPy · PyTorch</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certificates-section" id="certificates" aria-labelledby="certificates-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">04 / Continuous learning</p><h2 id="certificates-title">Certificates</h2></div>
+          <p>Open a certificate to view it in full.</p>
+        </div>
+        <div class="certificates-grid">
+          <button class="certificate-card" type="button" data-image="Images/certificates/bigdata.jpg" data-caption="Big Data 101" aria-label="View Big Data 101 certificate" aria-haspopup="dialog">
+            <img src="Images/certificates/bigdata.jpg" alt="Big Data 101 certificate" width="360" height="240" loading="lazy" decoding="async">
+            <span class="certificate-info"><strong>Big Data 101</strong><span>20 Jan 2026</span></span><span class="certificate-open" aria-hidden="true">↗</span>
+          </button>
+          <button class="certificate-card" type="button" data-image="Images/certificates/certificate (2)_page-0001.jpg" data-caption="Signal Processing" aria-label="View Signal Processing certificate" aria-haspopup="dialog">
+            <img src="Images/certificates/certificate (2)_page-0001.jpg" alt="Signal Processing certificate" width="360" height="240" loading="lazy" decoding="async">
+            <span class="certificate-info"><strong>Signal Processing</strong><span>23 Jan 2026</span></span><span class="certificate-open" aria-hidden="true">↗</span>
+          </button>
+          <button class="certificate-card" type="button" data-image="Images/certificates/certificate (3)_page-0001.jpg" data-caption="Wireless Communications" aria-label="View Wireless Communications certificate" aria-haspopup="dialog">
+            <img src="Images/certificates/certificate (3)_page-0001.jpg" alt="Wireless Communications certificate" width="360" height="240" loading="lazy" decoding="async">
+            <span class="certificate-info"><strong>Wireless Communications</strong><span>23 Jan 2026</span></span><span class="certificate-open" aria-hidden="true">↗</span>
+          </button>
+          <button class="certificate-card" type="button" data-image="Images/certificates/fortinet_page-0001 (1).jpg" data-caption="Fortinet Networking Fundamentals" aria-label="View Fortinet Networking Fundamentals certificate" aria-haspopup="dialog">
+            <img src="Images/certificates/fortinet_page-0001 (1).jpg" alt="Fortinet Networking Fundamentals certificate" width="360" height="240" loading="lazy" decoding="async">
+            <span class="certificate-info"><strong>Fortinet Networking Fundamentals</strong><span>8 Feb 2026</span></span><span class="certificate-open" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <noscript><p class="noscript-note">JavaScript is disabled. To view the original certificate, open its image in a new tab using your browser's image menu.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-layout">
+          <div><p class="eyebrow">05 / Get in touch</p><h2 id="contact-title">Let's talk about<br>what I can build with you.</h2><p>Open to software development, cybersecurity, DevOps and embedded/IoT opportunities in Helsinki, Espoo and Vantaa.</p></div>
+          <div class="contact-actions">
+            <a class="email-address" href="mailto:marchenkoarsenii23@gmail.com">marchenkoarsenii23@gmail.com <span aria-hidden="true">↗</span></a>
+            <button class="copy-email text-link" type="button" hidden>Copy email address <span aria-hidden="true">+</span></button>
+            <p class="copy-feedback" role="status" aria-live="polite"></p>
+            <div class="contact-links">
+              <a href="https://www.linkedin.com/in/arseniimarchenko/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Wong2023" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href="Images/CV1.pdf" target="_blank" rel="noopener noreferrer">View CV <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Arsenii Marchenko</p>
+      <p>Software development · Cybersecurity · IoT</p>
+      <div class="footer-tools">
+        <button class="motion-toggle" type="button" aria-pressed="true" hidden><span class="motion-indicator" aria-hidden="true"></span><span class="motion-label">Motion on</span></button>
+        <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
     </div>
-<script src="script.js"></script>
+  </footer>
+
+  <dialog class="certificate-modal" id="certificateModal" aria-labelledby="modalCaption">
+    <div class="modal-heading"><h2 id="modalCaption">Certificate</h2><form method="dialog"><button class="modal-close" aria-label="Close certificate" type="submit">Close <span aria-hidden="true">×</span></button></form></div>
+    <img id="modalImage" class="modal-image" alt="">
+    <p class="modal-help">Press Escape or click outside to close.</p>
+  </dialog>
 </body>
 </html>
