@@ -32,7 +32,13 @@ function setMenu(open, returnFocus = false) {
   menuButton.setAttribute('aria-expanded', String(isOpen));
   menuButton.querySelector('.menu-label').textContent = isOpen ? 'Close' : 'Menu';
   menuButton.querySelector('.menu-symbol').textContent = isOpen ? '−' : '+';
-  if (isOpen) animateUI(menu, [{ opacity: .2 }, { opacity: 1 }], { duration: 220 });
+  if (isOpen) {
+    animateUI(menu, [{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'none' }], { duration: 260 });
+    menu.querySelectorAll('li').forEach((item, index) => {
+      animateUI(item, [{ opacity: 0, transform: 'translateX(-10px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 340, delay: 40 + index * 45, fill: 'backwards' });
+    });
+  }
   if (returnFocus && mobileQuery.matches) menuButton.focus();
 }
 
@@ -149,7 +155,7 @@ function startTyping() {
   typingFrame = requestAnimationFrame(tick);
 }
 
-// Low-density, slow particles: no networks, flashes, cursor capture or assets.
+// Ambient particles: visible drift, gentle repulsion from the cursor on desktop.
 const ambientCanvas = document.getElementById('ambientBackground');
 if (ambientCanvas) {
   const context = ambientCanvas.getContext('2d');
@@ -159,12 +165,24 @@ if (ambientCanvas) {
     let dots = [];
     let frame = 0;
     let lastPaint = 0;
+    const pointer = { x: -999, y: -999 };
+    const repelRadius = 140;
 
     const paint = (delta = 0) => {
       context.clearRect(0, 0, width, height);
       dots.forEach(dot => {
         dot.x += dot.vx * delta;
         dot.y += dot.vy * delta;
+
+        const dx = dot.x - pointer.x;
+        const dy = dot.y - pointer.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < repelRadius && distance > 0) {
+          const force = (1 - distance / repelRadius) * 90 * delta;
+          dot.x += (dx / distance) * force;
+          dot.y += (dy / distance) * force;
+        }
+
         if (dot.x < -3) dot.x = width + 3;
         if (dot.x > width + 3) dot.x = -3;
         if (dot.y < -3) dot.y = height + 3;
@@ -180,10 +198,8 @@ if (ambientCanvas) {
         ambientCanvas.dataset.running = 'false';
         return;
       }
-      if (timestamp - lastPaint >= 32) {
-        paint(Math.min((timestamp - lastPaint) / 1000, .06));
-        lastPaint = timestamp;
-      }
+      paint(Math.min((timestamp - lastPaint) / 1000, .05));
+      lastPaint = timestamp;
       frame = requestAnimationFrame(tick);
     };
     refreshAmbient = () => {
@@ -203,17 +219,29 @@ if (ambientCanvas) {
       ambientCanvas.width = Math.round(width * ratio);
       ambientCanvas.height = Math.round(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const count = Math.max(18, Math.min(52, Math.round(width * height / 30000)));
+      const count = Math.max(30, Math.min(70, Math.round(width * height / 22000)));
       dots = Array.from({ length: count }, () => ({
         x: Math.random() * width, y: Math.random() * height,
-        vx: (Math.random() - .5) * 9, vy: -(5 + Math.random() * 6),
-        radius: .8 + Math.random() * .9, alpha: .25 + Math.random() * .4
+        vx: (Math.random() - .5) * 30, vy: -(15 + Math.random() * 25),
+        radius: 1 + Math.random() * 1.4, alpha: .35 + Math.random() * .45
       }));
       ambientCanvas.dataset.particles = String(count);
       paint();
     };
+    // Mobile browsers fire resize when the address bar hides; only rebuild on width changes.
+    let lastWidth = window.innerWidth;
     resize();
-    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      resize();
+    }, { passive: true });
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType === 'touch') return;
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+    }, { passive: true });
+    document.addEventListener('pointerleave', () => { pointer.x = pointer.y = -999; });
     document.addEventListener('visibilitychange', refreshAmbient);
     window.addEventListener('pagehide', () => cancelAnimationFrame(frame));
     window.addEventListener('pageshow', refreshAmbient);
@@ -258,20 +286,29 @@ reducedMotion.addEventListener('change', applyMotion);
 applyMotion();
 startTyping();
 
-// One-time, opacity-only entrances. No hidden-until-JS CSS or shifted layouts.
+// Hero entrance: fade with a short upward slide, staggered.
 if (motionEnabled) {
   document.querySelectorAll('.hero-content > *, .portrait, .highlights').forEach((element, index) => {
-    animateUI(element, [{ opacity: .2 }, { opacity: 1 }], { duration: 620, delay: index * 45 });
+    animateUI(element,
+      [{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }],
+      { duration: 700, delay: index * 70, fill: 'backwards' });
   });
 }
+
+// Scroll reveals: fade + slide up, with a cascade inside grids and lists.
 if ('IntersectionObserver' in window) {
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      animateUI(entry.target, [{ opacity: .15 }, { opacity: 1 }], { duration: 620 });
-      revealObserver.unobserve(entry.target);
+      const target = entry.target;
+      revealObserver.unobserve(target);
+      const siblings = [...target.parentElement.children].filter(child => child.matches('.project-card, .certificate-card, .experience-row'));
+      const index = Math.max(0, siblings.indexOf(target));
+      animateUI(target,
+        [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 760, delay: Math.min(index, 3) * 90, fill: 'backwards' });
     });
-  }, { threshold: .06 });
+  }, { threshold: 0, rootMargin: '0px 0px 6% 0px' });
   document.querySelectorAll('.section-heading, .thesis, .project-card, .experience-row, .about-copy, .toolkit, .certificate-card, .contact-layout')
     .forEach(element => revealObserver.observe(element));
 }
@@ -281,12 +318,79 @@ document.addEventListener('focusin', event => {
   region.getAnimations().forEach(animation => animation.finish());
 });
 
-// Small reading-position cue for the long page; no extra floating controls.
+// Count-up for the hero highlights when they scroll into view.
+const countTargets = [...document.querySelectorAll('.highlights dt')];
+if (countTargets.length && 'IntersectionObserver' in window) {
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const element = entry.target;
+      countObserver.unobserve(element);
+      if (!motionEnabled) return;
+      const match = element.textContent.trim().match(/^(\d+)(.*)$/);
+      if (!match) return;
+      const final = element.textContent;
+      const target = Number(match[1]);
+      const suffix = match[2];
+      const duration = 1300;
+      const begin = performance.now() + 250;
+      element.textContent = `0${suffix}`;
+      const step = now => {
+        if (!motionEnabled) { element.textContent = final; return; }
+        const progress = Math.min(Math.max((now - begin) / duration, 0), 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(step);
+        else element.textContent = final;
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: .4 });
+  countTargets.forEach(element => countObserver.observe(element));
+}
+
+// Ripple on buttons and cards, from the exact press point.
+document.querySelectorAll('.btn, .certificate-card, .nav-contact, .mobile-contact, .menu-toggle, .modal-close').forEach(element => {
+  element.addEventListener('pointerdown', event => {
+    if (!motionEnabled || event.button > 0) return;
+    const bounds = element.getBoundingClientRect();
+    const size = Math.max(bounds.width, bounds.height) * 2;
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.setAttribute('aria-hidden', 'true');
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${event.clientX - bounds.left - size / 2}px`;
+    ripple.style.top = `${event.clientY - bounds.top - size / 2}px`;
+    element.append(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+});
+
+// Small reading-position cue for the long page, plus the floating back-to-top button.
 const progressBar = document.querySelector('.reading-progress span');
+const toTop = document.querySelector('.to-top');
 let progressFrame = 0;
+let toTopVisible = false;
+
+if (toTop) {
+  toTop.hidden = false;
+  toTop.addEventListener('click', event => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: motionEnabled ? 'smooth' : 'auto' });
+    document.getElementById('home')?.focus?.({ preventScroll: true });
+  });
+}
+
 function updateProgress() {
   const distance = document.documentElement.scrollHeight - window.innerHeight;
   if (progressBar) progressBar.style.transform = `scaleX(${distance > 0 ? window.scrollY / distance : 0})`;
+  if (toTop) {
+    const show = window.scrollY > 600;
+    if (show !== toTopVisible) {
+      toTopVisible = show;
+      toTop.classList.toggle('is-visible', show);
+    }
+  }
   progressFrame = 0;
 }
 window.addEventListener('scroll', () => {
@@ -388,6 +492,9 @@ if (copyEmail && copyFeedback && emailLink) {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(email);
       copyFeedback.textContent = 'Email address copied.';
+      animateUI(copyFeedback,
+        [{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 320, fill: 'backwards' });
     } catch {
       const selection = window.getSelection();
       const range = document.createRange();
