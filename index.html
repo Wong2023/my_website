@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261108-motion">
-  <script src="script.js?v=20261108-motion" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261108-motion2">
+  <script src="script.js?v=20261108-motion2" defer></script>
 </head>
 <body>
   <canvas class="ambient-background" id="ambientBackground" aria-hidden="true"></canvas>
@@ -23,6 +23,7 @@
   <header class="site-header">
     <nav class="navbar container" aria-label="Main navigation">
       <a class="logo" href="#home" aria-label="DEV/SEC, home"><span>&lt;</span> DEV/SEC <span>/&gt;</span></a>
+      <a class="mobile-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden>
         <span class="menu-label">Menu</span><span class="menu-symbol" aria-hidden="true">+</span>
       </button>
@@ -317,6 +318,8 @@
       </div>
     </div>
   </footer>
+
+  <a class="to-top" href="#home" aria-label="Back to top" hidden><span aria-hidden="true">↑</span></a>
 
   <dialog class="certificate-modal" id="certificateModal" aria-labelledby="modalCaption">
     <div class="modal-heading"><h2 id="modalCaption">Certificate</h2><form method="dialog"><button class="modal-close" aria-label="Close certificate" type="submit">Close <span aria-hidden="true">×</span></button></form></div>
