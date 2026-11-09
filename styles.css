@@ -272,7 +272,7 @@ section { scroll-margin-top: var(--space-4); }
 /* Motion extras: only when motion is on and a real pointer can hover */
 [data-motion="off"] *, [data-motion="off"] *::before, [data-motion="off"] *::after { animation: none !important; transition: none !important; }
 html[data-motion="off"] { scroll-behavior: auto; }
-@media (hover: hover), (any-hover: hover) {
+@media all {
   [data-motion="on"] .project-card:hover { transform: translateY(-4px); border-color: rgb(145 229 188 / 40%); box-shadow: 0 14px 36px rgb(0 0 0 / 18%); }
   [data-motion="on"] .project-card:hover .project-image img { transform: scale(1.06); }
   [data-motion="on"] .btn:hover { transform: translateY(-2px); }
